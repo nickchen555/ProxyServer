@@ -1,0 +1,232 @@
+.css-table {
+    display: table;
+    width: 100%;
+    
+    background-color: black;
+    
+}
+
+.css-tr {
+    display: table-row;
+}
+
+.css-td {
+    display: table-cell;
+    vertical-align: top;
+    width: auto;
+}
+
+
+.text-container {
+    width: 100%;
+    padding: 0 0.2em 0 0;
+}
+
+.text-container input {
+    width: 100%;
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    border-radius: 5px;
+}
+
+.textarea-container {
+    width: 100%;
+    padding: 0 0.2em 0 0;
+}
+
+.textarea-container textarea {
+    width: 100%;
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    border-radius: 5px;
+}
+
+.select-container {
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0.2em 0 0;
+}
+
+.select-container select {
+    border-radius: 5px;
+}
+
+.button-container {
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0.2em 0 0;
+}
+
+.button-container button {
+    background-color: #86B404;
+    color: white;
+    border-radius: 5px;
+    width: 4em;
+    height: 1.7em;
+    /*
+    margin-left: 0.1em;
+
+    */
+}
+
+.checkbox-container {
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0.2em 0 0;
+    vertical-align: middle;
+}
+
+.checkbox-container input {
+    border-radius: 5px;
+}
+
+.menu-container {
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0.2em 0 0;
+    vertical-align: middle;
+}
+
+.speaker-container {
+    white-space: nowrap;
+    width: 4em;
+    height: 1.7em;
+    padding: 0 0.2em 0 0.2em;
+}
+
+.root-table {
+    width: 20em;
+    border: 1px solid;
+    table-layout: fixed;
+    /*
+    width: 100%;
+    */
+}
+
+.root-tr {
+    border: 1px solid;
+    vertical-align: top;
+}
+
+.root-td {
+    width: 33%;
+    border: 1px solid;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.play-position {
+    width:1px;
+    position:absolute;
+    top:0;
+    background-color:red;
+    z-index:500;
+}
+
+.play-start {
+    width:3px;
+    position:absolute;
+    top:0;
+    background-color:blue;
+    z-index:600;
+    cursor:e-resize;
+}
+
+.play-end {
+    width:3px;
+    position:absolute;
+    top:0;
+    background-color:blue;
+    z-index:600;
+    cursor:e-resize;
+}
+
+
+p.blue {
+    width: 10em;
+    color: white;
+    text-align: left;
+    background-color: #2E2EFE;
+}
+
+p.green {
+	width: 10em;
+    color: black;
+    text-align: left;
+    background-color: #BEF781;
+}
+
+p.yellow {
+    width: 10em;
+    color: black;
+    text-align: left;
+    background-color: #FCFF19;
+}
+
+p.orange {
+    width: 10em;
+    color: black;
+    text-align: left;
+    background-color: #FF8F19;
+}
+
+p.red {
+    width: 10em;
+    color: black;
+    text-align: left;
+    background-color: #F78181;
+}
+
+p.white {
+    width: 10em;
+    color: blank;
+    text-align: left;
+    background-color: white;
+}
+
+.btn-wrap{
+  text-align: center;
+  margin: 0;
+}
+.btn-wrap span{
+  font-weight: bolder;
+  padding: 0 8px 0 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+a.jastips {
+    z-index: 9;
+    font-weight: bold;
+    border-bottom: 1px dotted #690;
+    text-decoration: none;
+}
+
+a.jastips:hover {
+    position: relative;
+    z-index: 99;
+}
+
+a.jastips div {
+    display: none;
+}
+
+a.jastips:hover div {
+    display: block;
+    position: absolute;
+    float: left;
+    text-align: left;
+    white-space: nowrap;
+    top: 4em;
+    left: 0.7em;
+    background: #666;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 1px 5px;
+    margin: 0;
+    z-index: 9;
+}
+

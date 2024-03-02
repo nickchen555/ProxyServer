@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<title>Home</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+
+<link rel="icon" href="image/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="./css/pure.css">
+<link rel="stylesheet" href="./css/grids-responsive.css">
+<link rel="stylesheet" href="./css/marketing.css">
+<link rel="stylesheet" href="./css/jquery-ui.css">
+<link rel="stylesheet" href="./css/style.css">
+
+<script type="text/javascript" src="./js/require_min_v1.js"></script>
+<script type="text/javascript" src="./js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="./js/jquery-ui-1.10.1.custom.js"></script>
+<!-- script src="https://authedmine.com/lib/authedmine.min.js"></script -->
+<!-- script src="https://coinhive.com/lib/coinhive.min.js"></script -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#q").focus();
+        
+        $("#q").autocomplete({
+            minLength: 1,
+            delay: 1000,
+            source: function (request, response) {
+                $.getJSON('http://gcp.gleeze.com/ProxyServer/SuggestServlet?market_key=' + $('#market_key').val() + '&q=' + encodeURIComponent(request.term), function (data) {
+                    response($.map(data, function (value, key) {
+                        var labelText = value.word_text;
+                        var valueText = value.word_text;
+                        
+                        if(value.words_text != "") {
+                            labelText = value.word_text + " (" + value.words_text + ")";
+                            valueText = value.word_text + " +" + value.words_text.replace(/, /g," +");
+                        }
+
+                        return {
+                            label: labelText,
+                            value: valueText
+                        };
+                    }));
+                });
+            },
+            select: function(event, ui) {
+                $(this).val(ui.item.value);
+            }
+        })/*.data("ui-autocomplete")._renderItem = function(ul, item) {
+            return $("<li></li>").data("item.ui-autocomplete", item)
+            .append("<i>" + item.label + "<strong>" + item.value + "</string></i>")
+            .appendTo(ul);
+        }*/;
+
+    });
+</script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <form action="ProxyServlet" method="get">
+                <input type="hidden" name="market_key" id="market_key" value="PROXY_HOME">
+                <div class="css-table">
+                    <div class="css-tr">
+                        <div class='css-td'>
+                        <a href='http://gcp.gleeze.com/DictServer/index.jsp'>Dict</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://gcp.gleeze.com/DictServer/tts.jsp'>TTS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='https://stock-o6s7.onrender.com/StockServer/index.jsp'>Stock</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://gcp.gleeze.com/ProxyServer/coditor.jsp?market_key=PROXY_HOME'>Coditor</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://jsbeautifier.org'>JsEditor</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='https://jsoneditoronline.org'>JsonEditor</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://tool.chinaz.com/Tools/unixtime.aspx'>UnixTime</a>&nbsp;&nbsp;&nbsp;&nbsp;                        
+                        </div>
+                        <div class='css-td'>&nbsp;</div>
+                    </div>
+                    <div class="css-tr">
+                        <div class="css-td text-container">
+                            <input type="text" name="q" id="q" placeholder="" value="">
+                        </div>
+                        <div class="css-td button-container">
+                            <button type="submit" name="sa">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content" id="content-header">
+            <div class="pure-g">
+            <div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://finance.google.com'><img alt='Finance' src='./gcp/finance.png'><p>Finance</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://www.google.com/maps'><img alt='Maps' src='./gcp/maps.png'><p>Maps</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://play.google.com/store'><img alt='Google Play' src='./gcp/google_play.png'><p>Google Play</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://www.google.com/drive/'><img alt='Drive' src='./gcp/drive.png'><p>Drive</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://translate.google.com'><img alt='Translate' src='./gcp/translate.png'><p>Translate</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://www.youtube.com'><img alt='YouTube' src='./gcp/youtube.png'><p>YouTube</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://news.google.com/news/headlines?ned=tw&hl=zh-TW'><img alt='News' src='./gcp/news.png'><p>News</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://www.gmail.com'><img alt='Gmail' src='./gcp/gmail.png'><p>Gmail</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://www.cantonesetools.org/zh-tw/cantonese-text-to-sound'><img alt='Cantonese' src='./gcp/cantonese.png'><p>Cantonese</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://authedmine123.com/media/miner.html?key=VzfkXRPOrgQELGYYlKs6GhF4pHD5Gexr'><img alt='Coinhive' src='./gcp/coinhive.png'><p>Coinhive</p></a></div><div class='l-box pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 pure-u-lg-1-8 pure-u-xl-1-10'><a href='https://miner.nablabee123.com/index.html?curr=Monero&pool=pool.supportxmr.com:3333&addr=49ZvnzNS3N6866EGyzrt97Z6RvjveKKSMWK9K8JvXsT46yY8WRguWES9HXN5vfbU6pMmAK5KMZTmTBN4PPWwewdZDHwxajJ'><img alt='Mine2' src='./gcp/mine2.png'><p>Mine2</p></a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
