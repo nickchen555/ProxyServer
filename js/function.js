@@ -121,7 +121,7 @@ function matchURL(url) {
   return isMatch;
 }
 
-function redirect() {
+function linkEvent() {
     $(document).on('click', 'a', function (event) {
         var href = $(this).attr('href');
 
