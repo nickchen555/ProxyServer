@@ -121,3 +121,25 @@ function matchURL(url) {
   return isMatch;
 }
 
+function redirect() {
+    $(document).on('click', 'a', function (event) {
+        var href = $(this).attr('href');
+
+        // 排除特殊連結
+        if (!href ||
+            href === '#' ||
+            href.startsWith('javascript:') ||
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            $(this).attr('target') === '_blank') {
+            return;
+        }
+
+        event.preventDefault();
+
+        //console.log("正在記錄點擊數據...");
+        //alert("JS 執行完畢，準備跳轉！");
+
+        window.location.href = href;
+    });
+}
